@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { Note } from "../model/Note";
-
+const BASE_URL = "http://localhost:8080/api/notes";
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 export const createNote = async (note: Omit<Note, "id" | "createdAt" | "updatedAt">): Promise<Note> => {
   try {
@@ -15,7 +15,7 @@ export const createNote = async (note: Omit<Note, "id" | "createdAt" | "updatedA
 // 3. Delete a note by ID
 export const deleteNote = async (id: number): Promise<void> => {
   try {
-    await axios.delete(`${API_BASE_URL}/delete/${id}`);
+    await axios.delete(`${BASE_URL}/delete/${id}`);
   } catch (error) {
     console.error("Error deleting note", error);
     throw error;
@@ -26,7 +26,7 @@ export const deleteNote = async (id: number): Promise<void> => {
 
 export const getNoteById = async (id: number): Promise<Note> => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/id/${id}`);
+    const response = await axios.get(`${BASE_URL}/id/${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching note by ID", error);
@@ -36,7 +36,7 @@ export const getNoteById = async (id: number): Promise<Note> => {
 
 export const updateNote = async (id:number, noteData:Note) => {
   try {
-    const response = await axios.put(`${API_BASE_URL}/id/${id}`, noteData);
+    const response = await axios.put(`http://localhost:8080/api/notes/id/${id}`, noteData);
     console.log("Updated Note:", response.data);
     return response.data;
   } catch (error) {

@@ -26,7 +26,7 @@ export const deleteNote = async (id: number): Promise<void> => {
 
 export const getNoteById = async (id: number): Promise<Note> => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/id/${id}`);
+    const response = await axios.get(`${BASE_URL}/id/${id}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching note by ID", error);
@@ -36,7 +36,7 @@ export const getNoteById = async (id: number): Promise<Note> => {
 
 export const updateNote = async (id:number, noteData:Note) => {
   try {
-    const response = await axios.put(`${API_BASE_URL}/id/${id}`, noteData);
+    const response = await axios.put(`http://localhost:8080/api/notes/id/${id}`, noteData);
     console.log("Updated Note:", response.data);
     return response.data;
   } catch (error) {

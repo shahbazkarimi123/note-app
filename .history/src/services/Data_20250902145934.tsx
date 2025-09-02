@@ -36,7 +36,7 @@ export const getNoteById = async (id: number): Promise<Note> => {
 
 export const updateNote = async (id:number, noteData:Note) => {
   try {
-    const response = await axios.put(`${API_BASE_URL}/id/${id}`, noteData);
+    const response = await axios.put(`/id/${id}`, noteData);
     console.log("Updated Note:", response.data);
     return response.data;
   } catch (error) {
