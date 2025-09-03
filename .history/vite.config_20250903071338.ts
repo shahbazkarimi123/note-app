@@ -10,6 +10,6 @@ export default defineConfig({
   ],
     server: {
     port: 3001,  
-    strictPort: true, 
+    strictPort: true, // (optional) if true, Vite will fail instead of falling back if the port is in use
   },
 })

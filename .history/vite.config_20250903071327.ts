@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
   ],
     server: {
-    port: 3001,  
-    strictPort: true, 
+    port: 3001,  // 👈 change this to whatever port you want
+    strictPort: true, // (optional) if true, Vite will fail instead of falling back if the port is in use
   },
 })
