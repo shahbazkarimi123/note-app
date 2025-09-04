@@ -40,7 +40,7 @@ function AllNotes() {
   if (loading) return <p className="text-center">Loading Notes...</p>;
   if (error) return <p className="text-center text-red-500">{error}</p>;
   return (
-    <div className="w-full grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5">
+    <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-5">
       {notes.map((note: any) => (
         <div>
           <NoteBox key={note.id} note={note} onDelete={handleDelete} />
